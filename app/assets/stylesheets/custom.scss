@@ -1,0 +1,190 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+body {
+  margin-top: 30px;
+}
+
+.center {
+  text-align: center;
+}
+
+
+/* home */
+
+.button-home {
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 54px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0,0,0,0.2);
+  border: 2px solid #333;
+  color: #fff;
+  line-height: 50px;
+  overflow: hidden;
+  font-size: 20px;
+}
+
+.button-home:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-home::before,
+.button-home::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+  top: -100%;
+  width: 100%;
+  height: 100%;
+}
+.button-home,
+.button-home::before,
+.button-home::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.button-home:hover::after {
+  top: 0;
+  background-color: #333;
+}
+
+
+.jumbotron-extend {
+    position: relative;
+    height: 100vh;
+    min-height: 300px;
+    background: url("https://flowerillust.com/img/flower/flower-back1254.jpg") no-repeat center center;
+    background-size: cover;
+    margin-bottom: 0px;
+}
+
+.container-fluid {
+  background-color: rgba(0,0,0,0.3);
+  padding: 50px 0px 50px 0px;
+  margin-top: 30vh;
+}
+
+.container-fluid h1 {
+  color: #fff;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.submit-view {
+  background: url("https://flowerillust.com/img/flower/flower-back1254.jpg");
+  background-size: cover;
+  height: 100vh;
+  padding-right: 15px;
+  z-index: -2;
+}
+
+.new-title {
+  padding-top: 100px;
+}
+
+.new-title h1 {
+  text-align: center;
+  font-size: 45px;
+}
+
+.form-submit {
+  text-align: center;
+}
+
+/////inputに疑似要素は一時中断/////
+
+.button-signup2 {
+  background-color: rgba(0,0,0,0.2);
+  margin-top: 20px;
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 54px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  border: 2px solid #333;
+  color: #333;
+  line-height: 50px;
+  overflow: hidden;
+  font-size: 20px;
+}
+
+.button-signup2:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-signup::before,
+.button-signup::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+  top: -100%;
+  width: 100%;
+  height: 100%;
+}
+.button-signup,
+.button-signup::before,
+.button-signup::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.button-signup:hover::after {
+  top: 0;
+  background-color: #333;
+}
+
+.aaa {
+  margin-top: 50px;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: black;
+  }
+  li {
+    margin: 10px 0 0 0;
+  }
+}
+
+.alert {
+  z-index: 1000000;
+}

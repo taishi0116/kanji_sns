@@ -1,2 +1,31 @@
-<h1>ユーザー登録画面</h1>
-<p>項目を埋めて登録ボタンを押してください</p>
+<div class="submit-view">
+  <div class="new-title">
+    <h1>ユーザー登録</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-sm-4 col-md-offset-5 col-sm-offset-4">
+      <div class="form-submit">
+      <%= form_for(@user) do |f| %>
+        
+        
+        <%= f.label :name, "名前" %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "確認用パスワード" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <div class="button-signup"><%= f.submit "登録", class:"button-signup2" %></div>
+      <% end %>
+    </div>
+    </div>
+    <div class="col-md-2 col-sm-4 error-messages-new">
+        <%= render 'shared/error_messages' %>
+      </div>
+  </div>
+</div>
