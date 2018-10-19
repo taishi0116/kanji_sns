@@ -109,7 +109,8 @@ input {
 }
 
 .new-title {
-  padding-top: 100px;
+  padding-top: 130px;
+  padding-bottom: 50px;
 }
 
 .new-title h1 {
@@ -187,4 +188,32 @@ input {
 
 .alert {
   z-index: 1000000;
+}
+
+////login-form////
+
+.login-view {
+  height: 100vh;
+  min-height: 300px;
+  background: url("https://flowerillust.com/img/flower/flower-back1254.jpg") no-repeat center center;
+  background-size: cover;
+  text-align: center;
+}
+
+.login-title {
+  padding-top: 200px;
+  padding-bottom: 50px;
+}
+
+.login-title h1 {
+  text-align: center;
+  font-size: 45px;
+}
+
+.submit-yet {
+  color: #333;
+}
+
+.submit-yet:hover {
+  text-decoration: none;
 }

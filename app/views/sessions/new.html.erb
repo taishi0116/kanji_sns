@@ -1,0 +1,21 @@
+<div class="login-view">
+  <div class="login-title">
+    <h1>ログイン</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-sm-4 col-md-offset-5 col-sm-offset-4">
+      <%= form_for(:session, url: login_path) do |f| %>
+
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <div class="button-signup"><%= f.submit "ログイン", class:"button-signup2" %></div>
+      <% end %>
+
+      <%= link_to "登録がまだの方はこちらから", signup_path, class: "submit-yet" %>
+    </div>
+  </div>
+</div>
