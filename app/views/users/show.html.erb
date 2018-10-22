@@ -1,3 +1,6 @@
-<div class="aaa">
-  <%= @user.name %>, <%= @user.email %>
+<div class="show-me">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
 </div>
