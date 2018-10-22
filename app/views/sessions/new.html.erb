@@ -11,6 +11,11 @@
 
         <%= f.label :password, "パスワード" %>
         <%= f.password_field :password, class: 'form-control' %>
+        
+         <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>次回からは自動でログイン</span>
+      <% end %>
 
         <div class="button-signup"><%= f.submit "ログイン", class:"button-signup2" %></div>
       <% end %>
