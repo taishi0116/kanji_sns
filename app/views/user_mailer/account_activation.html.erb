@@ -1,0 +1,8 @@
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+SNSに登録していただきありがとうございます。現段階では仮登録のため、下記のURLより本登録を行ってください:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
