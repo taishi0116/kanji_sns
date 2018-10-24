@@ -9,7 +9,6 @@ gem 'rails', '~> 5.2.1'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt', '~> 3.1.12'
 gem 'faker',  '~> 1.7.3'
-gem 'sqlite3'
 gem 'will_paginate', '~>3.1.6'
 gem 'bootstrap-will_paginate', '~>1.0.0'
 # Use Puma as the app server
@@ -47,6 +46,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3'
 end
 
 group :development do
