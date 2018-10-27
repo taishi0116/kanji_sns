@@ -9,7 +9,7 @@ class AccountActivationsController < ApplicationController
       redirect_to user
     else
       flash[:danger] = "無効なURLです"
-      redirect_to
+      redirect_to root_url
     end
   end
 end
