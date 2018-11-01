@@ -21,11 +21,11 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
 
         <div class="button-signup"><%= f.submit "登録", class:"button-signup2" %></div>
-      <% end %>
-    </div>
-    </div>
-    <div class="col-md-2 col-sm-4 error-messages-new">
-        <%= render 'shared/error_messages' %>
       </div>
+    </div>
+      <div class="col-md-2 col-sm-4 error-messages-new">
+        <%= render 'shared/error_messages', object: f.object %>
+      </div>
+      <% end %>
   </div>
 </div>
