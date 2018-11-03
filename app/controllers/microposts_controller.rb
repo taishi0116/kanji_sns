@@ -1,11 +1,13 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
+  attr_accessor :todayscounter
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "投稿しました"
+      micropost_count
       redirect_to root_url
     else
       @feed_items = []
@@ -28,5 +30,10 @@ class MicropostsController < ApplicationController
     def correct_user
       @micropost = current_user.microposts.find_by(id: params[:id])
       redirect_to root_url if @micropost.nil?
+    end
+    
+    def micropost_count
+      range = Date.today.beginning_of_day..Date.today.end_of_day
+      $todayscounter = Micropost.where(user_id: current_user[:id], created_at: range).count
     end
 end

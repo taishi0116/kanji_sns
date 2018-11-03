@@ -3,7 +3,12 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <% if $todayscounter > 4 %>
+  <%= f.submit "1日の投稿数を超えました", class: "btn btn-primary" %>
+  <% else %>
+  <%= f.submit "投稿", class: "btn btn-primary" %>
+  <% end %>
+  
   <span class="picture">
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
