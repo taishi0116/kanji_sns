@@ -1,0 +1,13 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<% @notifications.each do |notification| %>
+  <ul>
+    <il><%= notification.followed.name %> さんにフォローされました</li>
+    <br>
+    <il><%= notification.created_at %></li>
+  </ul>
+<% end %>
