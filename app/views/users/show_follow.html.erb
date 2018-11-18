@@ -2,7 +2,11 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= gravatar_for @user %>
+        <% if @user.image? %>
+　　        <%= image_tag @user.image.thumb.url %>
+　      <% else %>
+　　        <%= image_tag 'default.png' %>
+　      <% end %>
       <h1><%= @user.name %></h1>
       <span><%= link_to "プロフィールを見る", @user %></span>
       <span><b>投稿数:</b> <%= @user.microposts.count %></span>
@@ -12,7 +16,11 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+            <% if user.image? %>
+              <%= link_to image_tag(user.image.thumb.url, :size => '50x50'), user %>
+            <% else %>
+              <%= link_to image_tag('default.png', :size => '30x30'), user %>
+            <% end %>
           <% end %>
         </div>
       <% end %>

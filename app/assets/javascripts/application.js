@@ -14,5 +14,12 @@
 //= require jquery
 //= require bootstrap
 //= require activestorage
+//= require jquery.infinitescroll
 //= require turbolinks
 //= require_tree .
+
+$('IFSC').infinitescroll({
+  navSelector  : 'nav.pagination',
+  nextSelector : 'nav.pagination a[rel=next]',
+  itemSelector : 'microposts ol'
+});

@@ -3,12 +3,14 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update, :notifications]
   
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).search(params[:search])
   end
   
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @room_id = message_room_id(current_user, @user)
+    @messages = Message.recent_in_room(@room_id)
   end
   
   def new
@@ -38,6 +40,11 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to root_url
+  end
+  
   def following
     @title = "Following"
     @user  = User.find(params[:id])
@@ -53,13 +60,23 @@ class UsersController < ApplicationController
   end
   
   def notifications
-    @notifications = Relationship.where(follower_id: current_user.id, read: false)
+    @notifications = Relationship.where(followed_id: current_user.id, read: false)
   end
   
+  def message_room_id(first_user, second_user)
+    first_id = first_user.id.to_i
+    second_id = second_user.id.to_i
+    if first_id < second_id
+      "#{first_user.id}-#{second_user.id}"
+    else
+      "#{second_user.id}-#{first_user.id}"
+    end
+  end
+
   private
   
     def user_params
       params.require(:user).permit(:name, :email, :intro, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :image)
     end
 end

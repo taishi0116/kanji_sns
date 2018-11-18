@@ -19,8 +19,4 @@ class RelationshipsController < ApplicationController
       format.js
     end
   end
-  
-  def notifications
-    @notifications = Relationship.where(follower_id: current_user.id, read: false)
-  end
 end

@@ -12,15 +12,25 @@
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>Micropost Feed</h3>
+      <h3>投稿一覧</h3>
+      <div id="IFSC">
+      <p>投稿検索</p>
+      <%= form_tag root_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "検索", :name => nil %>
+        </p>
+      <% end %>
+      
       <%= render 'shared/feed' %>
+      </div>
     </div>
   </div>
 <% else %>
-
+  
 <div class="center jumbotron jumbotron-extend">
   <div class="container-fluid">
-    <h1>漢字SNSへようこそ</h1>
+    <h1>SNSへようこそ</h1>
     <%= link_to "こちらから登録", signup_path, class: "button-home" %>
   </div>
 </div>
