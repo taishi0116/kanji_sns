@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :notifications]
   before_action :correct_user,   only: [:edit, :update, :notifications]
-  
   def index
     @users = User.paginate(page: params[:page]).search(params[:search])
   end
@@ -45,6 +44,22 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
   
+  def block
+    Block.create(blocking_id: current_user.id, blocked_id: params[:id] )
+    flash[:success] = "ユーザーをブロックしました"
+    redirect_to user_url(id: params[:id])
+  end
+  
+  def reblock
+    Block.find_by(blocking_id: current_user.id, blocked_id: params[:id]).destroy
+    flash[:success] = "ユーザーをブロック解除しました"
+    redirect_to blocklist_path
+  end
+  
+  def blocklist
+    @blocklist = current_user.blocker
+  end
+  
   def following
     @title = "Following"
     @user  = User.find(params[:id])
@@ -72,11 +87,11 @@ class UsersController < ApplicationController
       "#{second_user.id}-#{first_user.id}"
     end
   end
-
+  
   private
   
     def user_params
       params.require(:user).permit(:name, :email, :intro, :password,
-                                   :password_confirmation, :image)
+                                   :password_confirmation, :image, :pop)
     end
 end

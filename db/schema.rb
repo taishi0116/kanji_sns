@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_16_092752) do
+ActiveRecord::Schema.define(version: 2018_11_21_081701) do
+
+  create_table "blocks", force: :cascade do |t|
+    t.integer "blocking_id"
+    t.integer "blocked_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blocked_id"], name: "index_blocks_on_blocked_id"
+    t.index ["blocking_id", "blocked_id"], name: "index_blocks_on_blocking_id_and_blocked_id", unique: true
+    t.index ["blocking_id"], name: "index_blocks_on_blocking_id"
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
@@ -57,7 +67,14 @@ ActiveRecord::Schema.define(version: 2018_11_16_092752) do
     t.datetime "reset_sent_at"
     t.text "intro"
     t.string "image"
+    t.integer "pop", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "vote_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

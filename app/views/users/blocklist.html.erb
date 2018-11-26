@@ -1,0 +1,13 @@
+<br>
+<br>
+<% @blocklist.each do |b| %>
+  <ul>
+    <% if b.image? %>
+　　  <%= image_tag b.image.thumb.url %>
+    <% else %>
+　　  <%= image_tag 'default.png' %>
+    <% end %>
+    <li><%= b.name %></li>
+    <%= link_to "ブロックを解除する", {controller: "users", action: "reblock", id: b.id}, method: :post %>
+  </ul>
+<% end %>

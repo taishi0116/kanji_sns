@@ -1,0 +1,14 @@
+<% @user ||= current_user %>
+  <div class="ranked_image">
+    <% if @user.pop < 20 %>
+      <%= image_tag('bronze.png', :size => "60x60") %>
+    <% elsif @user.pop < 100 %>
+      <%= image_tag('silver.png', :size => "60x60") %>
+    <% elsif @user.pop < 500 %>
+      <%= image_tag('gold.png', :size => "60x60") %>
+    <% elsif @user.pop < 5000 %>
+      <%= image_tag('diamond.png', :size => "60x60") %>
+    <% else %>
+      <%= image_tag('challenger.png', :size => "60x60") %>
+    <% end %>
+  </div>

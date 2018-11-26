@@ -1,0 +1,11 @@
+<br>
+<br>
+<% if @user.image? %>
+　　  <%= image_tag @user.image.thumb.url %>
+　 <% else %>
+      <%= image_tag 'default.png' %>
+　 <% end %>
+    <h1>
+      <%= @user.name %>
+    </h1>
+<p>あなたはこのユーザーのブロックされています</p>

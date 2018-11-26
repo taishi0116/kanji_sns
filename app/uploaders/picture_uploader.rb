@@ -10,6 +10,9 @@ class PictureUploader < CarrierWave::Uploader::Base
     storage :file
   end
   
+  def size_range
+    1..5.bytes
+  end
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
